@@ -1,0 +1,142 @@
+
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\title{Git Tutorial for Computer Science Students}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+This tutorial is designed to introduce Computer Science major students to the fundamentals of using Git by the command line. We will focusing on the topic of stashes, branches and merging in document. By the end of the tutorial, you should have a basic understanding of how to use Git to manage your code.
+
+\section{Prerequisites}
+
+Before starting, ensure you have Git installed on your computer. You can verify this by opening a terminal and typing:
+
+\begin{lstlisting}[language=bash]
+git --version
+\end{lstlisting}
+
+If Git is not installed, please visit \href{https://github.com/} to download and install it.
+
+\section{Setting Up Your First Repository}
+
+\subsection{Create a New Directory for Your Project}
+
+\begin{lstlisting}[language=bash]
+mkdir my-git-project
+cd my-git-project
+\end{lstlisting}
+
+\subsection{Initialize a Git Repository}
+
+\begin{lstlisting}[language=bash]
+git init
+\end{lstlisting}
+
+This command creates a new Git repository in your project directory.
+
+\section{Using Branches}
+
+To manage new features or experiments in your project, you can use branches. This allows you to work on different versions of your project simultaneously without affecting the main codebase.
+
+\subsection{Create a New Branch}
+
+\begin{lstlisting}[language=bash]
+git branch feature-x
+\end{lstlisting}
+
+\subsection{Switch to the New Branch}
+
+\begin{lstlisting}[language=bash]
+git checkout feature-x
+\end{lstlisting}
+
+Alternatively, create and switch to a new branch in one command:
+
+\begin{lstlisting}[language=bash]
+git checkout -b feature-x
+\end{lstlisting}
+
+\section{Making Changes and Stashing}
+
+While working on your project, you might want to save your work without committing it. Git stash is useful in this scenario.
+
+\subsection{Make Some Changes}
+
+Let's modify `hello.py`:
+
+\begin{lstlisting}[language=Python]
+print("Hello, Git from feature-x!")
+\end{lstlisting}
+
+\subsection{Stash Your Changes}
+
+If you're not ready to commit:
+
+\begin{lstlisting}[language=bash]
+git stash
+\end{lstlisting}
+
+\subsection{Apply Your Stashed Changes}
+
+When ready to continue:
+
+\begin{lstlisting}[language=bash]
+git stash pop
+\end{lstlisting}
+
+\section{Merging Changes}
+
+After completing your work on a branch, you may want to merge those changes back into the main branch.
+
+\subsection{Switch Back to the Main Branch}
+
+\begin{lstlisting}[language=bash]
+git checkout main
+\end{lstlisting}
+
+\subsection{Merge the Feature Branch}
+
+\begin{lstlisting}[language=bash]
+git merge feature-x
+\end{lstlisting}
+
+This command merges the changes from `feature-x` into the `main` branch, incorporating your new features or changes into the main project.
+
+\end{document}
